@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -25,4 +26,10 @@ public class Equipe {
     public void setNiveau(Niveau niveau) {
         this.niveau = niveau;
     }
+
+    @OneToOne
+    private DetailEquipe detailEquipe;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Etudiant> etudiants;
 }

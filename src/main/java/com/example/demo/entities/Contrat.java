@@ -41,4 +41,7 @@ public class Contrat {
     public void setArchive(boolean archive) {
         this.archive = archive;
     }
+
+    @ManyToOne
+    private Etudiant etudiant;
 }

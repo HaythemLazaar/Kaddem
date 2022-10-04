@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+
 import javax.persistence.*;
 
 @Entity
@@ -17,4 +18,5 @@ public class Universite {
     public void setNomUniv(String nomUniv) {
         this.nomUniv = nomUniv;
     }
+
 }

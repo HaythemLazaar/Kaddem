@@ -1,5 +1,7 @@
 package com.example.demo.entities;
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -26,4 +28,13 @@ public class Etudiant {
     public void setNomE(String nomE) {
         this.nomE = nomE;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="etudiant")
+    private Set<Contrat> contrats;
+
+    @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)
+    private Set<Equipe> equipes;    
+
+    @ManyToOne
+    private Departement departement;
 }

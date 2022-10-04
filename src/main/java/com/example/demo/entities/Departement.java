@@ -1,5 +1,6 @@
 package com.example.demo.entities;
 
+import java.util.Set;
 import javax.persistence.*;
 
 @Entity
@@ -17,4 +18,10 @@ public class Departement {
     public void setNomDepart(String nomDepart) {
         this.nomDepart = nomDepart;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "departement")
+    private Set<Etudiant> etudiants;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Universite universite;  
 }
