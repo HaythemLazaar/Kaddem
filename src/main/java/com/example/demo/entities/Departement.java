@@ -22,6 +22,4 @@ public class Departement {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departement")
     private Set<Etudiant> etudiants;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Universite universite;  
 }

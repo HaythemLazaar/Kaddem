@@ -1,6 +1,8 @@
 package com.example.demo.entities;
 
 
+import java.util.Set;
+
 import javax.persistence.*;
 
 @Entity
@@ -19,4 +21,6 @@ public class Universite {
         this.nomUniv = nomUniv;
     }
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Departement> departements;
 }
