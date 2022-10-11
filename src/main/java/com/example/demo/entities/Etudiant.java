@@ -4,18 +4,31 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "Etudiant")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "idEtudiant")
+    @Column(name = "id_etudiant")
     private long idEtudiant;
     private String prenomE;
     private String nomE;
     @Enumerated(EnumType.STRING)
     private Option option;
 
+    public Option getOption() {
+        return option;
+    }
+    public void setOption(Option option) {
+        this.option = option;
+    }
     public String getPrenomE() {
         return prenomE;
     }
