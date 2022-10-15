@@ -19,12 +19,12 @@ public class ContratController {
     @Autowired
     ContratService ContratService;
 
-    @GetMapping("/Contrat")
+    @GetMapping("/contrat")
     List<Contrat> Contrats(){
         return ContratService.retrieveAllContrats();
     }
 
-    @PostMapping("/Contrat")
+    @PostMapping("/contrat")
     Contrat Contrat(@RequestBody Contrat Contrat){
         return ContratService.updateContrat(Contrat);
     }

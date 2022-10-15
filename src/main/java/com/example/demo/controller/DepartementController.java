@@ -19,12 +19,12 @@ public class DepartementController {
     @Autowired
     DepartementService DepartementService;
 
-    @GetMapping("/Departement")
+    @GetMapping("/departement")
     List<Departement> Departements(){
         return DepartementService.retrieveAllDepartements();
     }
 
-    @PostMapping("/Departement")
+    @PostMapping("/departement")
     Departement Departement(@RequestBody Departement Departement){
         return DepartementService.updateDepartement(Departement);
     }

@@ -19,12 +19,12 @@ public class UniversiteController {
     @Autowired
     UniversiteService UniversiteService;
 
-    @GetMapping("/Universite")
+    @GetMapping("/universite")
     List<Universite> Universites(){
         return UniversiteService.retrieveAllUniversites();
     }
 
-    @PostMapping("/Universite")
+    @PostMapping("/universite")
     Universite Universite(@RequestBody Universite Universite){
         return UniversiteService.updateUniversite(Universite);
     }

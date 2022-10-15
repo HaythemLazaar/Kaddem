@@ -19,12 +19,12 @@ public class DetailEquipeController {
     @Autowired
     DetailEquipeService DetailEquipeService;
 
-    @GetMapping("/DetailEquipe")
+    @GetMapping("/detailEquipe")
     List<DetailEquipe> DetailEquipes(){
         return DetailEquipeService.retrieveAllDetailEquipes();
     }
 
-    @PostMapping("/DetailEquipe")
+    @PostMapping("/detailEquipe")
     DetailEquipe DetailEquipe(@RequestBody DetailEquipe DetailEquipe){
         return DetailEquipeService.updateDetailEquipe(DetailEquipe);
     }

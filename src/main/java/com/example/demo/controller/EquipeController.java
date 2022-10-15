@@ -19,12 +19,12 @@ public class EquipeController {
     @Autowired
     EquipeService EquipeService;
 
-    @GetMapping("/Equipe")
+    @GetMapping("/equipe")
     List<Equipe> Equipes(){
         return EquipeService.retrieveAllEquipes();
     }
 
-    @PostMapping("/Equipe")
+    @PostMapping("/equipe")
     Equipe Equipe(@RequestBody Equipe Equipe){
         return EquipeService.updateEquipe(Equipe);
     }
