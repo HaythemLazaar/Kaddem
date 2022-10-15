@@ -3,8 +3,11 @@ package com.example.demo.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +23,28 @@ public class ContratController {
     ContratService ContratService;
 
     @GetMapping("/contrat")
-    List<Contrat> Contrats(){
+    List<Contrat> getAllContrats(){
         return ContratService.retrieveAllContrats();
     }
 
+    @GetMapping("/contrat/{idContrat}")
+    Contrat getContrat(@PathVariable Long idContrat){
+        return ContratService.retrieveContrat(idContrat);
+    }
+
     @PostMapping("/contrat")
-    Contrat Contrat(@RequestBody Contrat Contrat){
+    Contrat addContrat(@RequestBody Contrat Contrat){
+        return ContratService.addContrat(Contrat);
+    }
+
+    @PutMapping("/contrat")
+    Contrat updateContrat(@RequestBody Contrat Contrat){
         return ContratService.updateContrat(Contrat);
+    }
+    
+    @DeleteMapping("/contrat/{idContrat}")
+    void deleteContrat(@PathVariable Long idContrat){
+        ContratService.removeContrat(idContrat);
     }
     
 }

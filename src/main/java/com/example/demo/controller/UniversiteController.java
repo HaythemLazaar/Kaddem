@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,13 +22,24 @@ public class UniversiteController {
     UniversiteService UniversiteService;
 
     @GetMapping("/universite")
-    List<Universite> Universites(){
+    List<Universite> getAllUniversites(){
         return UniversiteService.retrieveAllUniversites();
     }
 
+    @GetMapping("/universite/{idUniversite}")
+    Universite getUniversite(@PathVariable Long idUniversite){
+        return UniversiteService.retrieveUniversite(idUniversite);
+    }
+
     @PostMapping("/universite")
-    Universite Universite(@RequestBody Universite Universite){
+    Universite addUniversite(@RequestBody Universite Universite){
+        return UniversiteService.addUniversite(Universite);
+    }
+
+    @PutMapping("/universite")
+    Universite updateUniversite(@RequestBody Universite Universite){
         return UniversiteService.updateUniversite(Universite);
     }
+
     
 }

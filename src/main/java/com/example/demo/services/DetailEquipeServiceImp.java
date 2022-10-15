@@ -34,5 +34,10 @@ public class DetailEquipeServiceImp implements DetailEquipeService{
     public DetailEquipe retrieveDetailEquipe(Long idDetailEquipe) {
         return detailEquipeRepository.findById(idDetailEquipe).orElse(null);
     }
+
+    @Override
+    public void removeDetailEquipe(Long idDetailEquipe){
+        detailEquipeRepository.deleteById(idDetailEquipe);
+    }
     
 }

@@ -23,25 +23,6 @@ public class Etudiant {
     @Enumerated(EnumType.STRING)
     private Option option;
 
-    public Option getOption() {
-        return option;
-    }
-    public void setOption(Option option) {
-        this.option = option;
-    }
-    public String getPrenomE() {
-        return prenomE;
-    }
-    public void setPrenomE(String prenomE) {
-        this.prenomE = prenomE;
-    }
-    public String getNomE() {
-        return nomE;
-    }
-    public void setNomE(String nomE) {
-        this.nomE = nomE;
-    }
-
     @OneToMany(cascade = CascadeType.ALL, mappedBy="etudiant")
     private Set<Contrat> contrats;
 

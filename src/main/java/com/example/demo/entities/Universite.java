@@ -5,22 +5,20 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import lombok.*;
+
 @Entity
 @Table(name = "Universite")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Universite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUniv")
     private long idUniv;
     private String nomUniv;
-    // Getters & Setters
-    public String getNomUniv() {
-        return nomUniv;
-    }
-    public void setNomUniv(String nomUniv) {
-        this.nomUniv = nomUniv;
-    }
-
+    
     @OneToMany(cascade = CascadeType.ALL)
     private Set<Departement> departements;
 }

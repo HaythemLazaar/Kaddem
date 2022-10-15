@@ -3,8 +3,14 @@ package com.example.demo.entities;
 import java.util.Set;
 import javax.persistence.*;
 
+import lombok.*;
+
+
 @Entity
 @Table(name = "Equipe")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class Equipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,19 +19,6 @@ public class Equipe {
     private String nomEquipe;
     @Enumerated(EnumType.STRING)
     private Niveau niveau;
-    // Getters & Setters
-    public String getNomEquipe() {
-        return nomEquipe;
-    }
-    public void setNomEquipe(String nomEquipe) {
-        this.nomEquipe = nomEquipe;
-    }
-    public Niveau getNiveau() {
-        return niveau;
-    }
-    public void setNiveau(Niveau niveau) {
-        this.niveau = niveau;
-    }
 
     @OneToOne
     private DetailEquipe detailEquipe;

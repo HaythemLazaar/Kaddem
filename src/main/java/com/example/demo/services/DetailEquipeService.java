@@ -9,4 +9,5 @@ public interface DetailEquipeService {
     DetailEquipe addDetailEquipe (DetailEquipe u);
     DetailEquipe updateDetailEquipe (DetailEquipe u);
     DetailEquipe retrieveDetailEquipe (Long idDetailEquipe);
+    void removeDetailEquipe (Long idDetailEquipe);
 }

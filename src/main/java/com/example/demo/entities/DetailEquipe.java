@@ -2,8 +2,13 @@ package com.example.demo.entities;
 
 import javax.persistence.*;
 
+import lombok.*;
+
 @Entity
 @Table(name = "DetailEquipe")
+@Getter
+@Setter
+@EqualsAndHashCode
 public class DetailEquipe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,19 +18,6 @@ public class DetailEquipe {
     private long salle;
     @Column(name = "thematique")
     private String thematique;
-
-    public long getSalle() {
-        return salle;
-    }
-    public void setSalle(long salle) {
-        this.salle = salle;
-    }
-    public String getThematique() {
-        return thematique;
-    }
-    public void setThematique(String thematique) {
-        this.thematique = thematique;
-    }
 
     @OneToOne(mappedBy = "detailEquipe")
     private Equipe equipe;
