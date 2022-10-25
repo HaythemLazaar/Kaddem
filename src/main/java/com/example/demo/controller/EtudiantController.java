@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,11 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.Etudiant;
 import com.example.demo.services.EtudiantService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 public class EtudiantController {
     
-    @Autowired
     EtudiantService etudiantService;
 
     @GetMapping("/etudiant")
@@ -27,7 +28,7 @@ public class EtudiantController {
         return etudiantService.getAllEtudiants();
     }
 
-    @GetMapping("/etudiant/{idEtudiant}")
+    @GetMapping("/etudiant/id/{idEtudiant}")
     Etudiant getEtudiant(@PathVariable Long idEtudiant){
         return etudiantService.getEtudiantById(idEtudiant);
     }
@@ -45,5 +46,10 @@ public class EtudiantController {
     @DeleteMapping("/etudiant/{idEtudiant}")
     void deleteEtudiant(@PathVariable Long idEtudiant){
         etudiantService.deleteEtudiant(idEtudiant);
+    }
+
+    @GetMapping("/etudiant/prenom/{prenome}")
+    Etudiant getEtudiantByPrenomE(@PathVariable String prenome){
+        return etudiantService.getEtudiantByPrenomE(prenome);
     }
 }

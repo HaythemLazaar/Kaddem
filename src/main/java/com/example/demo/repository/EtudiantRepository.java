@@ -6,4 +6,5 @@ import com.example.demo.entities.Etudiant;
 
 @Repository
 public interface EtudiantRepository extends JpaRepository<Etudiant, Long>{
+    Etudiant findEtudiantByPrenomE(String prenome);
 }

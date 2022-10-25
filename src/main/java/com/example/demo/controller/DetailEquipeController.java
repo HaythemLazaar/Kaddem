@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import javax.xml.soap.Detail;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +29,7 @@ public class DetailEquipeController {
         return DetailEquipeService.retrieveAllDetailEquipes();
     }
 
-    @GetMapping("/detailEquipe/{idDetailEquipe}")
+    @GetMapping("/detailEquipe/id/{idDetailEquipe}")
     DetailEquipe getDetailEquipe(@PathVariable Long idDetailEquipe){
         return DetailEquipeService.retrieveDetailEquipe(idDetailEquipe);
     }
@@ -45,6 +47,11 @@ public class DetailEquipeController {
     @DeleteMapping("/detailEquipe/{idDetailEquipe}")
     void deleteDetailEquipe(@PathVariable Long idDetailEquipe){
         DetailEquipeService.removeDetailEquipe(idDetailEquipe);
+    }
+
+    @GetMapping("/detailEquipe/thematique/{thematique}")
+    List<DetailEquipe> getDetailEquipeByThematique(@PathVariable String thematique){
+        return DetailEquipeService.getDetailEquipeByThematique(thematique);
     }
     
 }

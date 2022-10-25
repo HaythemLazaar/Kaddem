@@ -10,4 +10,5 @@ public interface DetailEquipeService {
     DetailEquipe updateDetailEquipe (DetailEquipe u);
     DetailEquipe retrieveDetailEquipe (Long idDetailEquipe);
     void removeDetailEquipe (Long idDetailEquipe);
+    List<DetailEquipe> getDetailEquipeByThematique(String thematique);
 }

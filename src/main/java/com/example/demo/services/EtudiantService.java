@@ -9,4 +9,5 @@ public interface EtudiantService {
     Etudiant updateEtudiant(Etudiant etudiant);
     void deleteEtudiant(Long id);
     Etudiant getEtudiantById(Long id);
+    Etudiant getEtudiantByPrenomE(String p);
 }

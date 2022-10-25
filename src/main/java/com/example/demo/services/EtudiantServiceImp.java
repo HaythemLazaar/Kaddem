@@ -37,5 +37,10 @@ public class EtudiantServiceImp implements EtudiantService{
     public Etudiant getEtudiantById(Long id) {
         return etudiantRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public Etudiant getEtudiantByPrenomE(String p){
+        return etudiantRepository.findEtudiantByPrenomE(p);
+    }
     
 }

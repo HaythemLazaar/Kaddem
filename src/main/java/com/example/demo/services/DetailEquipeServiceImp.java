@@ -2,17 +2,18 @@ package com.example.demo.services;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.DetailEquipe;
 import com.example.demo.repository.DetailEquipeRepository;
 
+import lombok.AllArgsConstructor;
+
 
 @Service
+@AllArgsConstructor
 public class DetailEquipeServiceImp implements DetailEquipeService{
 
-    @Autowired
     DetailEquipeRepository detailEquipeRepository;
 
     @Override
@@ -40,4 +41,8 @@ public class DetailEquipeServiceImp implements DetailEquipeService{
         detailEquipeRepository.deleteById(idDetailEquipe);
     }
     
+    @Override
+    public List<DetailEquipe> getDetailEquipeByThematique(String Thematique){
+        return detailEquipeRepository.findByThematiqueLike(Thematique);
+    }
 }
