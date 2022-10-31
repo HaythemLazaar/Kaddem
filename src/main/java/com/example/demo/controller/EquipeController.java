@@ -41,5 +41,9 @@ public class EquipeController {
         return EquipeService.updateEquipe(Equipe);
     }
     
-    
+    @GetMapping("/equipe/etudiant/{idEtudiant}")
+    List<Equipe> getEquipeByEtudiantIdEtudiant(@PathVariable Long IdEtudiant){
+        return EquipeService.getEquipeByEtudiantIdEtudiant(IdEtudiant);
+    }
+
 }

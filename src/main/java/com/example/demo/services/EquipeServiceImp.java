@@ -34,5 +34,10 @@ public class EquipeServiceImp implements EquipeService{
     public Equipe retrieveEquipe(Long idEquipe) {
         return equipeRepository.findById(idEquipe).orElse(null);
     }
+
+    @Override
+    public List<Equipe> getEquipeByEtudiantIdEtudiant(Long idEtudiant){
+        return equipeRepository.findByEtudiantsIdEtudiant(idEtudiant);
+    }
     
 }
