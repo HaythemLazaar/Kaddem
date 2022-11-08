@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entities.Equipe;
 import com.example.demo.entities.Etudiant;
 import com.example.demo.services.EtudiantService;
 
@@ -52,6 +51,11 @@ public class EtudiantController {
     @GetMapping("/etudiant/prenom/{prenome}")
     Etudiant getEtudiantByPrenomE(@PathVariable String prenome){
         return etudiantService.getEtudiantByPrenomE(prenome);
+    }
+
+    @PutMapping("/etudiant/{idEtudiant}/{idDepart}")
+    void assignEtudiantToDepartement(@PathVariable Long idEtudiant, @PathVariable Long idDepart){
+        etudiantService.assignEtudiantToDepartement(idEtudiant, idDepart);
     }
 
 }

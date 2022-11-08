@@ -30,5 +30,5 @@ public class Etudiant {
     private Set<Equipe> equipes;    
 
     @ManyToOne
-    private Departement departement;
+    Departement departement;
 }

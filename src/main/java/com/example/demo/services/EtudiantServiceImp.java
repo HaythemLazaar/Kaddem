@@ -5,14 +5,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entities.Departement;
 import com.example.demo.entities.Etudiant;
+import com.example.demo.repository.DepartementRepository;
 import com.example.demo.repository.EtudiantRepository;
 
+import lombok.AllArgsConstructor;
+
 @Service
+@AllArgsConstructor
 public class EtudiantServiceImp implements EtudiantService{
 
-    @Autowired
     EtudiantRepository etudiantRepository;
+    DepartementRepository departementRepository;
 
     @Override
     public List<Etudiant> getAllEtudiants() {
@@ -42,6 +47,14 @@ public class EtudiantServiceImp implements EtudiantService{
     @Override
     public Etudiant getEtudiantByPrenomE(String p){
         return etudiantRepository.findEtudiantByPrenomE(p);
+    }
+
+    @Override
+    public void assignEtudiantToDepartement(Long idEtudiant, Long idDepart) {
+        Etudiant etudiant = etudiantRepository.findById(idEtudiant).orElse(null);
+        Departement depart = departementRepository.findById(idDepart).orElse(null);
+        etudiant.setDepartement(depart);
+        etudiantRepository.save(etudiant);        
     }
     
 }

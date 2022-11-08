@@ -11,4 +11,5 @@ public interface EtudiantService {
     void deleteEtudiant(Long id);
     Etudiant getEtudiantById(Long id);
     Etudiant getEtudiantByPrenomE(String p);
+    void assignEtudiantToDepartement(Long idEtudiant, Long idDepart);
 }
