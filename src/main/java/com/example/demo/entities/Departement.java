@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import java.util.Set;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 
@@ -19,6 +21,7 @@ public class Departement {
     private String nomDepart;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "departement")
+    @JsonIgnore
     private Set<Etudiant> etudiants;
 
 }

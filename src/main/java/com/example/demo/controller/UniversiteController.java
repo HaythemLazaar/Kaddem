@@ -41,5 +41,9 @@ public class UniversiteController {
         return UniversiteService.updateUniversite(Universite);
     }
 
+    @PutMapping("/universite/{idUniv}/{idDepart}")
+    void assignUniversiteToDepartement(@PathVariable Long idUniv, @PathVariable Long idDepart){
+        UniversiteService.assignUniversiteToDepartement(idUniv, idDepart);
+    }
     
 }

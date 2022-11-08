@@ -9,4 +9,5 @@ public interface UniversiteService {
     Universite addUniversite (Universite u);
     Universite updateUniversite (Universite u);
     Universite retrieveUniversite (Long idUniversite);
+    void assignUniversiteToDepartement(Long idUniv, Long idDepart);
 }
