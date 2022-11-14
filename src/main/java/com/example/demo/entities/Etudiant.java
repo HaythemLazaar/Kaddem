@@ -4,6 +4,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +26,7 @@ public class Etudiant {
     private Option option;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="etudiant")
+    @JsonIgnore
     private Set<Contrat> contrats;
 
     @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)

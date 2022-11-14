@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -23,5 +25,6 @@ public class Contrat {
     private boolean archive;
 
     @ManyToOne
+    @JsonIgnore
     Etudiant etudiant;
 }

@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.entities.Universite;
 import com.example.demo.services.UniversiteService;
 
+import lombok.AllArgsConstructor;
+
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 public class UniversiteController {
     
-    @Autowired
+    
     UniversiteService UniversiteService;
 
     @GetMapping("/universite")
@@ -41,8 +43,8 @@ public class UniversiteController {
         return UniversiteService.updateUniversite(Universite);
     }
 
-    @PutMapping("/universite/{idUniv}/{idDepart}")
-    void assignUniversiteToDepartement(@PathVariable Long idUniv, @PathVariable Long idDepart){
+    @PutMapping("/universite/assign/{idUniv}/{idDepart}")
+    void assignUniversiteToDepartement(@PathVariable("idUniv") Long idUniv, @PathVariable("idDepart") Long idDepart){
         UniversiteService.assignUniversiteToDepartement(idUniv, idDepart);
     }
     

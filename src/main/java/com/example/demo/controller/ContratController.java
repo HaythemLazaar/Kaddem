@@ -13,14 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entities.Contrat;
+import com.example.demo.entities.Etudiant;
 import com.example.demo.services.ContratService;
+import com.example.demo.services.EtudiantService;
+
+import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping("/api")
+@AllArgsConstructor
 public class ContratController {
     
-    @Autowired
     ContratService ContratService;
+    EtudiantService etudiantService;
 
     @GetMapping("/contrat")
     List<Contrat> getAllContrats(){
@@ -46,5 +51,14 @@ public class ContratController {
     void deleteContrat(@PathVariable Long idContrat){
         ContratService.removeContrat(idContrat);
     }
+
+    @PutMapping("/contrat/{idContrat}/{idEtudiant}")
+    Contrat aasignContratToEtudiant(
+        @PathVariable("idContrat") Long idContrat, 
+        @PathVariable("idEtudiant") Long idEtudiant){
+            Contrat ce = ContratService.retrieveContrat(idContrat);
+            Etudiant etudiant = etudiantService.getEtudiantById(idEtudiant);
+            return ContratService.affectContratToEtudiant(ce, etudiant.getNomE(), etudiant.getPrenomE());
+        }
     
 }

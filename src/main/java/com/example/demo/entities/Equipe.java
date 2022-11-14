@@ -3,6 +3,8 @@ package com.example.demo.entities;
 import java.util.Set;
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 
@@ -24,5 +26,6 @@ public class Equipe {
     private DetailEquipe detailEquipe;
 
     @ManyToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Etudiant> etudiants;
 }

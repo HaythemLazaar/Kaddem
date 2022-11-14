@@ -5,6 +5,8 @@ import java.util.Set;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.*;
 
 @Entity
@@ -20,5 +22,6 @@ public class Universite {
     private String nomUniv;
     
     @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
     private Set<Departement> departements;
 }
