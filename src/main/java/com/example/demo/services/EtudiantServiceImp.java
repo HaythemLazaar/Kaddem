@@ -2,9 +2,9 @@ package com.example.demo.services;
 
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.transaction.Transactional;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.entities.Contrat;
@@ -66,19 +66,15 @@ public class EtudiantServiceImp implements EtudiantService{
     }
 
     @Override
+    @Transactional
     public Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Long idContrat, Long idEquipe) {
+        // Set Equipe to Etudiant
         Equipe equipe = equipeRepository.findById(idEquipe).orElse(null);
-        Set<Equipe> equipes = new HashSet<Equipe>();
-        equipes.add(equipe);
-        //Set<Etudiant> etudiants = new HashSet<Etudiant>();
-        //etudiants.add(e);
-        //equipe.setEtudiants(etudiants);
+        e.setEquipes(new HashSet<Equipe>());
+        e.getEquipes().add(equipe);
+        // Set Contrat to Etudiant
         Contrat contrat = contratRepository.findById(idContrat).orElse(null);
-        Set<Contrat> contrats = new HashSet<Contrat>();
-        contrats.add(contrat);
-        //contrat.setEtudiant(e);
-        e.setContrats(contrats);
-        e.setEquipes(equipes);
+        contrat.setEtudiant(e);
         return etudiantRepository.save(e);
     }
     

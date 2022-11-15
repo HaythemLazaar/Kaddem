@@ -4,17 +4,13 @@ import java.util.Set;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "Etudiant")
 @Getter
 @Setter
-@EqualsAndHashCode
 public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +22,9 @@ public class Etudiant {
     private Option option;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="etudiant")
-    @JsonIgnore
     private Set<Contrat> contrats;
 
-    @ManyToMany(mappedBy="etudiants", cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     private Set<Equipe> equipes;    
 
     @ManyToOne

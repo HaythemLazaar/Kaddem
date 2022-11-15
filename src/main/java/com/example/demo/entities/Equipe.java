@@ -25,7 +25,7 @@ public class Equipe {
     @OneToOne
     private DetailEquipe detailEquipe;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy="equipes", cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<Etudiant> etudiants;
 }
