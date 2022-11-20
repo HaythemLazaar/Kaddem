@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.util.Date;
 import java.util.List;
 import com.example.demo.entities.Contrat;
 
@@ -10,4 +11,5 @@ public interface ContratService {
     Contrat retrieveContrat (Long idContrat);
     void removeContrat(Long idContrat);
     Contrat affectContratToEtudiant (Contrat ce, String nomE,String prenomE);
+    float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate);
 }
