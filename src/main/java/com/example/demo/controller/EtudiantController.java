@@ -65,4 +65,9 @@ public class EtudiantController {
         @PathVariable("idEquipe") Long idEquipe){
             return etudiantService.addAndAssignEtudiantToEquipeAndContract(etudiant, idContrat, idEquipe);
         }
+
+    @GetMapping("/etudiant/departement/{idDepart}")
+    List<Etudiant> getEtudiantsByDepartement(@PathVariable Long idDepart){
+        return etudiantService.getEtudiantsByDepartement(idDepart);
+    }
 }

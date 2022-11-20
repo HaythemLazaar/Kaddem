@@ -13,4 +13,5 @@ public interface EtudiantService {
     Etudiant getEtudiantByPrenomE(String p);
     void assignEtudiantToDepartement(Long idEtudiant, Long idDepart);
     Etudiant addAndAssignEtudiantToEquipeAndContract(Etudiant e, Long idContrat, Long idEquipe);
+    List<Etudiant> getEtudiantsByDepartement (Long idDepartement);
 }

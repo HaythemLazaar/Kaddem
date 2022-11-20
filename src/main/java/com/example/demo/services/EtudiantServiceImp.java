@@ -1,7 +1,9 @@
 package com.example.demo.services;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -76,6 +78,12 @@ public class EtudiantServiceImp implements EtudiantService{
         Contrat contrat = contratRepository.findById(idContrat).orElse(null);
         contrat.setEtudiant(e);
         return etudiantRepository.save(e);
+    }
+
+    @Override
+    public List<Etudiant> getEtudiantsByDepartement(Long idDepartement) {
+        Departement dep = departementRepository.findById(idDepartement).orElse(null);
+        return new ArrayList<Etudiant>(dep.getEtudiants());
     }
     
 }

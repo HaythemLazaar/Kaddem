@@ -9,4 +9,5 @@ public interface DepartementService {
     Departement addDepartement (Departement d);
     Departement updateDepartement (Departement d);
     Departement retrieveDepartement (Long idDepart);
+    List<Departement> retrieveDepartementsByUniversite(Long idUniversite);
 }

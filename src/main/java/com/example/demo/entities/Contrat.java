@@ -17,7 +17,7 @@ public class Contrat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idContrat")
-    private long idContrat;
+    private long idContrat;  
     private Date dateDebutContrat;
     private Date dateFinContrat;
     @Enumerated(EnumType.STRING)
