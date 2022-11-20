@@ -86,5 +86,15 @@ public class ContratServiceImp implements ContratService{
 
         return sumChiffreAffaire.floatValue();
     }
+
+    @Override
+    public Integer nbContratsValides(Date startDate, Date endDate) {
+        return contratRepository.findAll().stream()
+            .filter(
+                c -> c.isArchive() == false 
+                && 
+                (!startDate.after(c.getDateFinContrat()) && !endDate.before(c.getDateDebutContrat())))
+            .collect(Collectors.toList()).size();
+    }
     
 }

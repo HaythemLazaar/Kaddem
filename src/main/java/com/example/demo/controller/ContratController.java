@@ -69,4 +69,11 @@ public class ContratController {
         @RequestParam(name = "end-date") @DateTimeFormat(pattern = "dd.MM.yyyy") Date endDate){
             return ContratService.getChiffreAffaireEntreDeuxDate(startDate, endDate);
         }
+
+    @GetMapping("/contrat/valide")
+    Integer nbContratsValides(
+        @RequestParam(name = "start-date") @DateTimeFormat(pattern = "dd.MM.yyyy") Date startDate, 
+        @RequestParam(name = "end-date") @DateTimeFormat(pattern = "dd.MM.yyyy") Date endDate){
+            return ContratService.nbContratsValides(startDate, endDate);
+        }
 }

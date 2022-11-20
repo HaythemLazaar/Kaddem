@@ -12,4 +12,5 @@ public interface ContratService {
     void removeContrat(Long idContrat);
     Contrat affectContratToEtudiant (Contrat ce, String nomE,String prenomE);
     float getChiffreAffaireEntreDeuxDate(Date startDate, Date endDate);
+    Integer nbContratsValides(Date startDate, Date endDate);
 }
