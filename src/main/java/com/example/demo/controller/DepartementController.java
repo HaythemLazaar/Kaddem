@@ -21,24 +21,29 @@ public class DepartementController {
     @Autowired
     DepartementService DepartementService;
 
-    @GetMapping("/Departement")
+    @GetMapping("/departement")
     List<Departement> getAllDepartements(){
         return DepartementService.retrieveAllDepartements();
     }
 
-    @GetMapping("/Departement/{idDepartement}")
+    @GetMapping("/departement/{idDepartement}")
     Departement getDepartement(@PathVariable Long idDepartement){
         return DepartementService.retrieveDepartement(idDepartement);
     }
 
-    @PostMapping("/Departement")
+    @PostMapping("/departement")
     Departement addDepartement(@RequestBody Departement Departement){
         return DepartementService.addDepartement(Departement);
     }
 
-    @PutMapping("/Departement")
+    @PutMapping("/departement")
     Departement updateDepartement(@RequestBody Departement Departement){
         return DepartementService.updateDepartement(Departement);
+    }
+
+    @GetMapping("/departement/universite/{idUniv}")
+    List<Departement> getDepartementsByUniversite(@PathVariable Long idUniv){
+        return DepartementService.retrieveDepartementsByUniversite(idUniv);
     }
     
 }
